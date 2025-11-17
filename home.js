@@ -51,10 +51,15 @@ document.getElementById("withdraw-money-btn").addEventListener('click', function
         return;
     }
     else {
-        alert("Successfully Added Money to Your Account");
         balance = balance - withdrawAmount;
+        if (balance < 1) {
+            alert("Your balance credit is low");
+            balance = balance + withdrawAmount;
+            return;
+        }
         balancePosition.textContent = balance;
         console.log(balance);
+        alert("Cashout Successfull");
     }
 
 });
