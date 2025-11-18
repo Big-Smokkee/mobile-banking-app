@@ -1,19 +1,40 @@
+// function to get input values and convert into number
+function getInputValueNumber(id) {
+    const value = parseInt(document.getElementById(id).value);
+    return value;
+}
+// function to get input values 
+function getInputValue(id) {
+    const value = document.getElementById(id).value;
+    return value;
+}
+// function to get inner text converted into number
+function getInnerTextIntoNumber(id) {
+    const value = parseInt(document.getElementById(id).innerText);
+    return value;
+}
+
+//function to set innter text
+function setInnerText(value) {
+    const availableBalanceElement = document.getElementById("availableBalance");
+    availableBalanceElement.innerText = value;
+    console.log(value);
+}
+
+
 // Add money section
 
 document.getElementById("addMoneyBtn").addEventListener('click', function (event) {
     event.preventDefault();
-    let balancePosition = document.getElementById("availableBalance");
-    let balance = balancePosition.innerText;
-    balance = parseInt(balance);
-    const bankName = document.getElementById("bankName").value;
+    let balance = getInnerTextIntoNumber("availableBalance");
+    const bankName = getInputValue("bankName");
 
-    const accountNumber = document.getElementById("accountNumber").value;
+    const accountNumber = getInputValue("accountNumber");
 
 
-    let addAmount = document.getElementById("addAmount").value;
-    addAmount = parseInt(addAmount);
+    const addAmount = getInputValueNumber("addAmount");
 
-    const PINNumber = document.getElementById("PIN-Number").value;
+    const PINNumber = getInputValue("PIN-Number")
     if (accountNumber.length != 11 || PINNumber !== '1234') {
         alert("Please Enter Valid Account Number & Password");
         return;
@@ -21,8 +42,8 @@ document.getElementById("addMoneyBtn").addEventListener('click', function (event
     else {
         alert("Successfully Added Money to Your Account");
         balance = balance + addAmount;
-        balancePosition.textContent = balance;
-        console.log(balance);
+        setInnerText(balance);
+
     }
 
 });
@@ -34,17 +55,17 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 // cashout section
 document.getElementById("withdraw-money-btn").addEventListener('click', function (event) {
     event.preventDefault();
-    let balancePosition = document.getElementById("availableBalance");
-    let balance = balancePosition.innerText;
-    balance = parseInt(balance);
-    const agentName = document.getElementById("agent-number").value;
+
+    let balance = getInnerTextIntoNumber("availableBalance");
+
+
+    const agentName = getInputValue("agent-number");
+    const PINNumber = getInputValue("withdraw-PIN-Number");
 
 
 
-    let withdrawAmount = document.getElementById("withdraw-amount").value;
-    withdrawAmount = parseInt(withdrawAmount);
+    let withdrawAmount = getInputValueNumber("withdraw-amount");
 
-    const PINNumber = document.getElementById("withdraw-PIN-Number").value;
 
     if (agentName.length != 11 || PINNumber !== '1234') {
         alert("Please Enter Valid Account Number & Password");
@@ -57,9 +78,8 @@ document.getElementById("withdraw-money-btn").addEventListener('click', function
             balance = balance + withdrawAmount;
             return;
         }
-        balancePosition.textContent = balance;
+        setInnerText(balance);
         console.log(balance);
         alert("Cashout Successfull");
     }
-
 });
