@@ -1,3 +1,5 @@
+//variable for showing transaction
+const transactionData = [];
 // function to get input values and convert into number
 function getInputValueNumber(id) {
     const value = parseInt(document.getElementById(id).value);
@@ -44,6 +46,12 @@ document.getElementById("addMoneyBtn").addEventListener('click', function (event
         balance = balance + addAmount;
         setInnerText(balance);
 
+        const data = {
+            name: "Add Money",
+            date: new Date().toLocaleTimeString(),
+        };
+        transactionData.push(data);
+        console.log(transactionData);
     }
 
 });
@@ -81,5 +89,46 @@ document.getElementById("withdraw-money-btn").addEventListener('click', function
         setInnerText(balance);
         console.log(balance);
         alert("Cashout Successfull");
+        const data = {
+            name: "Cashout",
+            date: new Date().toLocaleTimeString(),
+        };
+        transactionData.push(data);
+        console.log(transactionData);
     }
 });
+
+//transaction section
+
+document.getElementById("transaction-button").addEventListener("click", function () {
+    // const transactionHeading = document.getElementById("transaction-heading");
+    // const transactionTime = document.getElementById("transaction-time");
+
+    // for (const data of transactionData) {
+    //     // console.log(data.name);
+    //     transactionHeading.innerText = data.name;
+    //     transactionTime.innerText = data.date;
+    // }
+
+    const transactionContainer = document.getElementById("transaction-container");
+    transactionContainer.innerText = "";
+    for (const data of transactionData) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div class="flex items-center justify-between px-4 py-3 mb-3 bg-white rounded-xl">
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/wallet1.png" alt="bill" class="">
+                        <div>
+                            <h4 id="transaction-heading">${data.name}</h4>
+                            <p id="transaction-time">${data.date}</p>
+                        </div>
+
+                    </div>
+                    <span class="rotate-90"><i class="fa-solid fa-ellipsis"></i></span>
+                </div>`;
+        transactionContainer.appendChild(div);
+    }
+
+})
+
+

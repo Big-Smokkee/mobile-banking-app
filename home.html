@@ -268,36 +268,15 @@
         </div>
         <!-- transaction section -->
         <div class="forms" id="transaction-section" style="display: none;">
-            <h2 class="font-semibold text-xl mb-3">Transactions</h2>
-            <form action="" class="bg-white p-8 w-[400px] rounded-3xl">
-                <div>
-                    <div>
-                        <label for="" class="font-semibold">Agent Number</label>
-                        <br>
-                        <input type="text" placeholder="Enter 11 Digit Number"
-                            class="input bg-[#f4f5f7] mt-3 rounded-3xl mb-2" id="agent-number" />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label for="" class="font-semibold">Amount</label>
-                        <br>
-                        <input type="text" placeholder="Enter Amount To Withdraw"
-                            class="input bg-[#f4f5f7] mt-3 rounded-3xl mb-2" id="withdraw-amount" />
-                    </div>
-                </div>
-                <div>
-                    <div class="">
-                        <label for="" class="font-semibold">Pin Number</label>
-                        <br>
-                        <input type="text" placeholder="Enter 4 digit PIN Number"
-                            class="input bg-[#f4f5f7] mt-3 rounded-3xl mb-2" id="withdraw-PIN-Number" />
-                    </div>
-                </div>
-                <button class=" btn btn-primary mt-5 w-full rounded-3xl bg-[#0874F2] border-none"
-                    id="withdraw-money-btn">Withdraw
-                    Money</button>
-            </form>
+            <div class="flex justify-between items-center">
+                <h3 class="font-semibold text-gray-900">Latest Payment</h3>
+                <p class="text-gray-500">View All</p>
+            </div>
+            <div class="w-[400px]  mt-4" id="transaction-container">
+                <!-- cards alerts -->
+
+            </div>
+        </div>
         </div>
     </section>
     <!-- JSJ Script -->
