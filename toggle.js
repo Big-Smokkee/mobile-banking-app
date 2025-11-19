@@ -32,5 +32,4 @@ document.getElementById("paybill-button").addEventListener("click", function () 
 //Transaction section
 document.getElementById("transaction-button").addEventListener("click", function () {
     toggleFeature("transaction-section");
-
 });
