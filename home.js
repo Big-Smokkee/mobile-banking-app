@@ -42,8 +42,14 @@ document.getElementById("addMoneyBtn").addEventListener('click', function (event
         return;
     }
     else {
-        alert("Successfully Added Money to Your Account");
         balance = balance + addAmount;
+        if (addAmount < 1) {
+            alert("Transaction cannot be completed");
+            balance = balance - addAmount;
+            return;
+        }
+        alert("Successfully Added Money to Your Account");
+
         setInnerText(balance);
 
         const data = {
