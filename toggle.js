@@ -1,48 +1,36 @@
 
 const formElement = document.getElementsByClassName("forms");
-//add money section
-document.getElementById("add-button").addEventListener("click", function () {
-    // document.getElementById("cash-out-section").style.display = "none";
+//function for toggling
+function toggleFeature(id) {
     for (const form of formElement) {
         form.style.display = "none";
     }
-    document.getElementById("add-money-section").style.display = "block";
+    document.getElementById(id).style.display = "block";
+}
+//add money section
+document.getElementById("add-button").addEventListener("click", function () {
+    toggleFeature("add-money-section");
 
 });
 //cashout section
 document.getElementById("cash-out-button").addEventListener("click", function () {
-    // document.getElementById("cash-out-section").style.display = "none";
-    for (const form of formElement) {
-        form.style.display = "none";
-    }
-    document.getElementById("cash-out-section").style.display = "block";
-
+    toggleFeature("cash-out-section");
 });
 //transfer section
 document.getElementById("transfer-button").addEventListener("click", function () {
-    for (const form of formElement) {
-        form.style.display = "none";
-    }
-    document.getElementById("transfer-section").style.display = "block";
+
+    toggleFeature("transfer-section");
 });
 //Get Bonus section
 document.getElementById("get-bonus-button").addEventListener("click", function () {
-    for (const form of formElement) {
-        form.style.display = "none";
-    }
-    document.getElementById("get-bonus-section").style.display = "block";
+    toggleFeature("get-bonus-section");
 });
 //Pay Bill section
 document.getElementById("paybill-button").addEventListener("click", function () {
-    for (const form of formElement) {
-        form.style.display = "none";
-    }
-    document.getElementById("pay-bill-section").style.display = "block";
+    toggleFeature("pay-bill-section");
 });
 //Transaction section
 document.getElementById("transaction-button").addEventListener("click", function () {
-    for (const form of formElement) {
-        form.style.display = "none";
-    }
-    document.getElementById("transaction-section").style.display = "block";
+    toggleFeature("transaction-section");
+
 });
